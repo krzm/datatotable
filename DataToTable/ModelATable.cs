@@ -1,4 +1,4 @@
-﻿using Core.Model;
+﻿using ModelHelper;
 
 namespace DataToTable;
 
@@ -30,26 +30,26 @@ public class ModelATable<TEntity> : TextTable<TEntity>
 
 	protected override void SetColumnsSize(List<TEntity> models)
 	{
-		SetColumn(nameof(IModelA.Id), GetIdsLength(models));
-		SetColumn(nameof(IModelA.Name),  GetNamesLength(models));
-		SetColumn(nameof(IModelA.Description),  GetDescsLength(models));
+		SetColumn(nameof(IModelA.Id), ModelATable<TEntity>.GetIdsLength(models));
+		SetColumn(nameof(IModelA.Name), ModelATable<TEntity>.GetNamesLength(models));
+		SetColumn(nameof(IModelA.Description), ModelATable<TEntity>.GetDescsLength(models));
 	}
 
-	private List<int> GetIdsLength(List<TEntity> models)
+	private static List<int> GetIdsLength(List<TEntity> models)
 	{
 		var rows = models.Select(e => e.Id.ToString().Length).ToList();
 		rows.Insert(0, nameof(IModelA.Id).Length);
 		return rows;
 	}
 
-	private List<int> GetNamesLength(List<TEntity> models)
+	private static List<int> GetNamesLength(List<TEntity> models)
 	{
 		var rows = models.Select(e => e.Name.Length).ToList();
 		rows.Insert(0, nameof(IModelA.Name).Length);
 		return rows;
 	}
 
-	private List<int> GetDescsLength(List<TEntity> models)
+	private static List<int> GetDescsLength(List<TEntity> models)
 	{
 		var rows = models.Select(e => e.Description.Length).ToList();
 		rows.Insert(0, nameof(IModelA.Description).Length);

@@ -1,5 +1,4 @@
-﻿using Core.Lib;
-using Core.Model;
+﻿using ModelHelper;
 using System.Collections.Generic;
 using System.Linq;
 using Xunit;
@@ -50,7 +49,7 @@ public class ModelAColumnCalculatorTests
 			, table);
 	}
 
-	private List<int> GetIdsLength(List<ModelA> models)
+	private static List<int> GetIdsLength(List<ModelA> models)
 	{
 		var rows = models.Select(e => e.Id.ToString().Length).ToList();
 		rows.Insert(0, nameof(IModelA.Id).Length);
