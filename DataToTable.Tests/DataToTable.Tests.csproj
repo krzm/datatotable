@@ -25,7 +25,7 @@
 	</ItemGroup>
 	<ItemGroup>
 		<Reference Include="ModelHelper">
-			<HintPath>..\..\build\Build\model-helper\ModelHelper\ModelHelper.dll</HintPath>
+			<HintPath>..\..\..\Build\model-helper\ModelHelper\ModelHelper.dll</HintPath>
 		</Reference>
 	</ItemGroup>
 </Project>
