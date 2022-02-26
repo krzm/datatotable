@@ -6,7 +6,9 @@ public class ModelATable<TEntity> : TextTable<TEntity>
 	where TEntity : IModelA
 {
 	public ModelATable(
-		IColumnCalculator<TEntity> columnCalculator) : base(columnCalculator)
+		ITableTextEditor tableTextEditor
+		, IColumnCalculator<TEntity> columnCalculator) 
+			: base(tableTextEditor, columnCalculator)
 	{}
 
 	protected override void CreateTableHeader()
@@ -16,16 +18,16 @@ public class ModelATable<TEntity> : TextTable<TEntity>
 
 	private void SetColumns()
 	{
-		AddColumn(GetColumnData(nameof(IModelA.Id)));
-		AddColumn(GetColumnData(nameof(IModelA.Name)));
-		AddColumn(GetColumnData(nameof(IModelA.Description)));
+		TableTextEditor.AddColumn(GetColumnData(nameof(IModelA.Id)));
+		TableTextEditor.AddColumn(GetColumnData(nameof(IModelA.Name)));
+		TableTextEditor.AddColumn(GetColumnData(nameof(IModelA.Description)));
 	}
 
 	protected override void CreateTableRow(TEntity model)
 	{
-		AddValue(GetColumnData(nameof(IModelA.Id)), model.Id.ToString());
-		AddValue(GetColumnData(nameof(IModelA.Name)), model.Name);
-		AddValue(GetColumnData(nameof(IModelA.Description)), model.Description);
+		TableTextEditor.AddValue(GetColumnData(nameof(IModelA.Id)), model.Id.ToString());
+		TableTextEditor.AddValue(GetColumnData(nameof(IModelA.Name)), model.Name);
+		TableTextEditor.AddValue(GetColumnData(nameof(IModelA.Description)), model.Description);
 	}
 
 	protected override void SetColumnsSize(List<TEntity> models)
