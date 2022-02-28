@@ -18,16 +18,16 @@ public class ModelATable<TEntity> : TextTable<TEntity>
 
 	private void SetColumns()
 	{
-		TableTextEditor.AddColumn(GetColumnData(nameof(IModelA.Id)));
-		TableTextEditor.AddColumn(GetColumnData(nameof(IModelA.Name)));
-		TableTextEditor.AddColumn(GetColumnData(nameof(IModelA.Description)));
+		Editor.AddColumn(GetColumnData(nameof(IModelA.Id)));
+		Editor.AddColumn(GetColumnData(nameof(IModelA.Name)));
+		Editor.AddColumn(GetColumnData(nameof(IModelA.Description)));
 	}
 
 	protected override void CreateTableRow(TEntity model)
 	{
-		TableTextEditor.AddValue(GetColumnData(nameof(IModelA.Id)), model.Id.ToString());
-		TableTextEditor.AddValue(GetColumnData(nameof(IModelA.Name)), model.Name);
-		TableTextEditor.AddValue(GetColumnData(nameof(IModelA.Description)), model.Description);
+		Editor.AddValue(GetColumnData(nameof(IModelA.Id)), model.Id.ToString());
+		Editor.AddValue(GetColumnData(nameof(IModelA.Name)), model.Name);
+		Editor.AddValue(GetColumnData(nameof(IModelA.Description)), model.Description);
 	}
 
 	protected override void SetColumnsSize(List<TEntity> models)

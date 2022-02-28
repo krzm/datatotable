@@ -5,7 +5,7 @@ public abstract class TextTable<TEntity> :
 	, ITextTable
 {
 	private readonly Dictionary<string, ColumnData> sizes = new();
-    protected readonly ITableTextEditor TableTextEditor;
+    protected readonly ITableTextEditor Editor;
     private readonly IColumnCalculator<TEntity> columnCalculator;
 
 	public TextTable(
@@ -13,7 +13,7 @@ public abstract class TextTable<TEntity> :
 		, IColumnCalculator<TEntity> columnCalculator
 	)
 	{
-        this.TableTextEditor = tableTextEditor;
+        this.Editor = tableTextEditor;
         this.columnCalculator = columnCalculator;
 	}
 
@@ -23,9 +23,9 @@ public abstract class TextTable<TEntity> :
 		Reset();
 		CalculateColumnsSize(items);
 		CreateTableHeader();
-		TableTextEditor.AddNewLine();
+		Editor.AddNewLine();
 		CreateRowLayout(items);
-		return TableTextEditor.GetTableText();
+		return Editor.GetTableText();
 	}
 
 	protected virtual void CreateRowLayout(List<TEntity> items)
@@ -38,7 +38,7 @@ public abstract class TextTable<TEntity> :
 		for (int i = 0; i < items.Count; i++)
 		{
 			CreateTableRow(items[i]);
-			TableTextEditor.AddNewLine();
+			Editor.AddNewLine();
 		}
 	}
 
@@ -49,7 +49,7 @@ public abstract class TextTable<TEntity> :
 		{
 			CreateTableRow(items[i]);
 			CreateTableRow(items[j]);
-			TableTextEditor.AddNewLine();
+			Editor.AddNewLine();
 			j++;
 		}
 	}
@@ -76,7 +76,7 @@ public abstract class TextTable<TEntity> :
 
 	private void Reset()
 	{
-		TableTextEditor.Reset();
+		Editor.Reset();
 	}
 
 	protected ColumnData GetColumnData(string columnName)
