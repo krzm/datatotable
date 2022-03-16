@@ -6,6 +6,13 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+	<!--Debug refs-->
+  <!-- <ItemGroup>
+    <Reference Include="ModelHelper">
+      <HintPath>..\..\model-helper\ModelHelper\bin\Debug\net6.0\ModelHelper.dll</HintPath>
+    </Reference>
+  </ItemGroup> -->
+	<!--Release refs-->
   <ItemGroup>
     <Reference Include="ModelHelper">
       <HintPath>..\..\..\Build\model-helper\ModelHelper\ModelHelper.dll</HintPath>
