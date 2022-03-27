@@ -3,10 +3,10 @@ using Microsoft.Extensions.DependencyInjection;
 
 namespace DataToTable.MDI;
 
-public class DataToTableSet 
+public abstract class DataToTableSet 
 	: MDIDependencySet
 {
-	public DataToTableSet(
+	protected DataToTableSet(
 		IServiceCollection container)
 		: base(container)
 	{
@@ -18,7 +18,7 @@ public class DataToTableSet
 		RegisterTableProviders();
 	}
 
-	protected virtual void RegisterColumnCalculators() { }
+	protected abstract void RegisterColumnCalculators();
 
-	protected virtual void RegisterTableProviders() { }
+	protected abstract void RegisterTableProviders();
 }

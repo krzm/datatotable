@@ -3,10 +3,10 @@ using Unity;
 
 namespace DataToTable.Unity;
 
-public class DataToTableSet 
+public abstract class DataToTableSet 
     : UnityDependencySet
 {
-    public DataToTableSet(
+    protected DataToTableSet(
         IUnityContainer container)
         : base(container)
     {
@@ -18,7 +18,7 @@ public class DataToTableSet
 		RegisterTableProviders();
 	}
 
-	protected virtual void RegisterColumnCalculators() { }
+	protected abstract void RegisterColumnCalculators();
 
-	protected virtual void RegisterTableProviders() { }
+	protected abstract void RegisterTableProviders();
 }
