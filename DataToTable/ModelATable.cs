@@ -2,7 +2,8 @@
 
 namespace DataToTable;
 
-public class ModelATable<TEntity> : TextTable<TEntity>
+public class ModelATable<TEntity> 
+	: TextTable<TEntity>
 	where TEntity : IModelA
 {
 	public ModelATable(

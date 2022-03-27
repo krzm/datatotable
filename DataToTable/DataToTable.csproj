@@ -6,16 +6,28 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+		<PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="6.0.0" />
+		<PackageReference Include="Unity.Abstractions" Version="5.11.7" />
+	</ItemGroup>
+
 	<!--Debug refs-->
   <!-- <ItemGroup>
     <Reference Include="ModelHelper">
       <HintPath>..\..\model-helper\ModelHelper\bin\Debug\net6.0\ModelHelper.dll</HintPath>
     </Reference>
+    <Reference Include="DIHelper">
+			<HintPath>..\..\di-helper\DIHelper\bin\Debug\net6.0\DIHelper.dll</HintPath>
+		</Reference>
   </ItemGroup> -->
+
 	<!--Release refs-->
   <ItemGroup>
     <Reference Include="ModelHelper">
       <HintPath>..\..\..\Build\model-helper\ModelHelper\ModelHelper.dll</HintPath>
     </Reference>
+    <Reference Include="DIHelper">
+			<HintPath>..\..\..\Build\di-helper\DIHelper\DIHelper.dll</HintPath>
+		</Reference>
   </ItemGroup>
 </Project>
