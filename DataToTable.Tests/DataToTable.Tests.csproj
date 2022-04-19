@@ -23,9 +23,11 @@
 	<ItemGroup>
 		<ProjectReference Include="..\DataToTable\DataToTable.csproj" />
 	</ItemGroup>
-	<ItemGroup>
-		<Reference Include="ModelHelper">
-			<HintPath>..\..\..\Build\model-helper\ModelHelper\ModelHelper.dll</HintPath>
-		</Reference>
-	</ItemGroup>
+	
+    <!--Debug refs-->
+  <ItemGroup>
+    <Reference Include="ModelHelper">
+      <HintPath>..\..\model-helper\ModelHelper\bin\Debug\net6.0\ModelHelper.dll</HintPath>
+    </Reference>
+  </ItemGroup>
 </Project>
