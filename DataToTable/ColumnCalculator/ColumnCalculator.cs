@@ -14,13 +14,17 @@ public class ColumnCalculator<TEntity> : IColumnCalculator<TEntity>
         {
             leftFill = 0;
             rightFill = headerSize - colSize;
-            return new ColumnData(columnName, headerSize, leftFill, rightFill);
         }
         else
         {
             leftFill = (colSize - headerSize) / 2;
             rightFill = colSize - headerSize - leftFill;
-            return new ColumnData(columnName, colSize, leftFill, rightFill);
+            headerSize = colSize;
         }
+        return new ColumnData(
+            columnName
+            , headerSize
+            , leftFill
+            , rightFill);
     }
 }

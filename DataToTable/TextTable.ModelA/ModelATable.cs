@@ -14,11 +14,6 @@ public class ModelATable<TEntity>
 
 	protected override void CreateTableHeader()
 	{
-		SetColumns();
-	}
-
-	private void SetColumns()
-	{
 		Editor.AddColumn(GetColumnData(IdKey));
 		Editor.AddColumn(GetColumnData(NameKey));
 		Editor.AddColumn(GetColumnData(DescKey));

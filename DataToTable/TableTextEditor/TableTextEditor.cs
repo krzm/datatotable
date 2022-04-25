@@ -16,6 +16,16 @@ public class TableTextEditor
     public void AddNewLine() =>
         tableText.Append(Environment.NewLine);
 
+    public void AddColumn(ColumnData data)
+	{
+        AddSpace(data.Left);
+        AddSpace(data.Padding);
+		AddColumnName(data.Name);
+        AddSpace(data.Padding);
+		AddSpace(data.Right);
+		AddColumnSeparator();
+	}
+
     public void AddSpace(int count)
     {
         for (int i = 1; i <= count; i++)
@@ -23,14 +33,6 @@ public class TableTextEditor
             tableText.Append(' ');
         }
     }
-
-    public void AddColumn(ColumnData data)
-	{
-        AddSpace(data.Left);
-		AddColumnName(data.Name);
-		AddSpace(data.Right);
-		AddColumnSeparator();
-	}
 
     private void AddColumnName(string name) =>
         tableText.Append(name);
@@ -42,7 +44,9 @@ public class TableTextEditor
 		ColumnData data
 		, string value)
 	{
+        AddSpace(data.Padding);
 		AddValue(value);
+        AddSpace(data.Padding);
 		AddSpace(data.Size - value.Length);
 		AddColumnSeparator();
 	}
