@@ -8,14 +8,15 @@ public abstract class ModelAToText<TEntity>
 {
 
     protected string IdKey => nameof(IModelA.Id);
-    protected string NameKey => nameof(IModelA.Id);
-    protected string DescKey => nameof(IModelA.Id);
+    protected string NameKey => nameof(IModelA.Name);
+    protected string DescKey => nameof(IModelA.Description);
 
 	protected ModelAToText(
-		ITableTextEditor tableTextEditor
-		, IColumnCalculator<TEntity> columnCalculator) 
-			: base(tableTextEditor, columnCalculator)
-	{}
+        ITableTextEditor tableTextEditor
+        , IColumnCalculator<TEntity> columnCalculator) 
+            : base(tableTextEditor, columnCalculator)
+	{
+    }
 
     protected string GetId(IModelA m) => 
 		m.Id.ToString();
